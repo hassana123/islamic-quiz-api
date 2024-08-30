@@ -8,20 +8,26 @@ import "./index.css";
 import NonTechiesSupportPage from "./pages/NonTechiesSupportPage";
 import DocumentationPage from "./pages/DocumentationPage";
 import HomePage from "./pages/HomePage";
+import Layout from "./layouts/Layout";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element:<HomePage/>,
-  },
-  {
-    path: "/documentaion",
-    element:<DocumentationPage/>,
-  },
-  {
-    path: "/non-techies-support",
-    element: <NonTechiesSupportPage />,
-  },
+    element:<Layout/>,
+    children:[
+      {
+        path: "/",
+        element:<HomePage/>,
+      },
+      {
+        path: "/docs",
+        element:<DocumentationPage/>,
+      },
+      {
+        path: "/non-techies-support",
+        element: <NonTechiesSupportPage />,
+      },
+    ],
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
