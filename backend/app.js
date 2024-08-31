@@ -40,6 +40,9 @@ app.use('/admin', authenticateAdmin, adminRoutes);
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
+app.get('/env', (req, res) => {
+  res.json({ JWT_SECRET: process.env.JWT_SECRET });
+});
 app.use('/', authRoutes); 
 app.use('/', questionRoutes);
 app.use('/', feedbackRoutes);

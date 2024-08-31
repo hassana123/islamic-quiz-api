@@ -42,6 +42,7 @@ async function loginUser(req, res) {
         res.status(200).json({ token });
     } catch (error) {
         res.status(500).json({ message: error.message });
+        console.log('JWT_SECRET:', process.env.JWT_SECRET);
     }
 }
 
