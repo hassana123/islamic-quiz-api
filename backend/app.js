@@ -37,6 +37,9 @@ app.use(async (req, res, next) => {
 app.use('/admin', authenticateAdmin, adminRoutes);
 
 // Load routes after DB middleware
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
 app.use('/', authRoutes); 
 app.use('/', questionRoutes);
 app.use('/', feedbackRoutes);
