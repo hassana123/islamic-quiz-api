@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: ['http://localhost:5173', 'http://localhost:8080',"https://islamic-quiz-api.vercel.app/"],
+  origin: ['http://localhost:5173', 'http://localhost:8080',"https://islamic-quiz-api.vercel.app/","https://hallaly-api-documentaion.vercel.app/"],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -37,8 +37,9 @@ app.use(async (req, res, next) => {
 app.use('/admin', authenticateAdmin, adminRoutes);
 
 // Load routes after DB middleware
+
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.redirect('https://hallaly-api-documentaion.vercel.app/');
 });
 
 app.use('/', authRoutes); 
