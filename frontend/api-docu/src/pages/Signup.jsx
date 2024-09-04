@@ -21,7 +21,7 @@ const Signup = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error,  succes } = useSelector((state) => state.auth);
+  const { loading, error,  success } = useSelector((state) => state.auth);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +37,6 @@ const Signup = () => {
     }
 
     dispatch(registerRequest());
-
     try {
       const response = await axios.post('https://islamic-quiz-api.vercel.app/register', {
         username: formData.username,
@@ -60,6 +59,7 @@ const Signup = () => {
     <div className="w-full max-w-md mx-auto mt-10 p-6 bg-[#fff] shadow-md rounded-md">
       <h2 className="text-2xl font-bold text-center mb-4">Create New Account</h2>
       {error && <p className="text-redish text-1xl font-bold">{error}</p>}
+      {success && <p className="text-highlight text-1xl font-bold">{succes}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-gray-700">Username</label>

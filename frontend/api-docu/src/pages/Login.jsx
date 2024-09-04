@@ -1,5 +1,5 @@
 // src/components/Login.js
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { loginRequest, loginSuccess, loginFailure } from "../util/store";
@@ -13,7 +13,30 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error } = useSelector((state) => state.auth);
+  const { loading, error, success } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    let timeout;
+    if (success) {
+      timeout = setTimeout(() => {
+        navigate("/dashboard");
+        dispatch(loginSuccess(null));
+      }, 2000); // Redirect after 3 seconds
+    }
+
+    return () => clearTimeout(timeout);
+  }, [success, navigate]);
+
+  useEffect(() => {
+    let timeout;
+    if (error) {
+      timeout = setTimeout(() => {
+        dispatch(loginFailure(null)); // Clear error after 3 seconds
+      }, 3000);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [error, dispatch]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,10 +57,10 @@ const Login = () => {
         }
       );
 
-      dispatch(loginSuccess(response.data));
-      console.log(response.data.token);
+      dispatch(loginSuccess("Login Succesful"));
+      console.log(response.data);
       localStorage.setItem("token", response.data.token);
-      navigate("/dashboard");
+      //navigate("/dashboard");
     } catch (error) {
       dispatch(loginFailure(error.response?.data?.message || "Login failed"));
       console.log(error);
@@ -46,9 +69,10 @@ const Login = () => {
   console.log(formData);
 
   return (
-    <div className="w-full max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-md">
+    <div className="w-full max-w-md mx-auto mt-10 p-6 bg-[#fff] shadow-md rounded-md">
       <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-redish font-bold text-center text-xl">{error}</p>}
+      {success && <p className="text-highlight font-bold text-center text-xl">{success}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-gray-700">Email</label>

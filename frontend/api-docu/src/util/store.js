@@ -6,7 +6,7 @@ const initialState = {
   isAuthenticated: false,
   loading: false,
   error: null,
-  succes: null,
+  success: null,
 };
 
 const authSlice = createSlice({
@@ -16,13 +16,13 @@ const authSlice = createSlice({
     loginRequest: (state) => {
       state.loading = true;
       state.error = null;
-      state.succes=null;
+      state.success=null;
     },
     loginSuccess: (state, action) => {
       state.user = action.payload;
       state.isAuthenticated = true;
       state.loading = false;
-      state.succes=action.payload;
+      state.success=action.payload;
     },
     loginFailure: (state, action) => {
       state.loading = false;
@@ -33,18 +33,18 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       state.loading = false;
       state.error = null;
-      state.succes=null;
+      state.success=null;
     },
     registerRequest: (state) => {
       state.loading = true;
       state.error = null;
-      state.succes=null;
+      state.loginSuccess=null;
     },
     registerSuccess: (state, action) => {
       state.user = action.payload;
       state.isAuthenticated = true;
       state.loading = false;
-      state.succes=action.payload;
+      state.success=action.payload;
     },
     registerFailure: (state, action) => {
       state.loading = false;
