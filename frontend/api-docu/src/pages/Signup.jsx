@@ -1,5 +1,5 @@
 // src/components/Signup.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import {
@@ -23,6 +23,28 @@ const Signup = () => {
   const navigate = useNavigate();
   const { loading, error,  success } = useSelector((state) => state.auth);
 
+  useEffect(() => {
+    let timeout;
+    if (success) {
+      timeout = setTimeout(() => {
+        navigate('/login');
+      }, 3000); // Redirect after 3 seconds
+    }
+
+    return () => clearTimeout(timeout);
+  }, [success, navigate]);
+
+  useEffect(() => {
+    let timeout;
+    if (error) {
+      timeout = setTimeout(() => {
+        dispatch(registerFailure(null)); // Clear error after 3 seconds
+      }, 3000);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [error, dispatch]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -32,7 +54,7 @@ const Signup = () => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match');
+      dispatch(registerFailure("Passwords do not match \n Registration failed"));
       return;
     }
 
@@ -44,10 +66,7 @@ const Signup = () => {
         password: formData.password,
       });
 
-      dispatch(registerSuccess(response.data));
-      console.log(response.data);
-      dispatch(registerSuccess(response.data || "Account Created Succesfully! \n Proceed to Login."))
-      navigate('/login');
+      dispatch(registerSuccess("Account Created Successfully! \n Proceed to Login."));
     } catch (error) {
       dispatch(registerFailure(error.response?.data?.message || 'Registration failed \n Could not Create Account \n Please try again later'));
     }
@@ -58,8 +77,8 @@ const Signup = () => {
   return (
     <div className="w-full max-w-md mx-auto mt-10 p-6 bg-[#fff] shadow-md rounded-md">
       <h2 className="text-2xl font-bold text-center mb-4">Create New Account</h2>
-      {error && <p className="text-redish text-1xl font-bold">{error}</p>}
-      {success && <p className="text-highlight text-1xl font-bold">{succes}</p>}
+      {error && <p className="text-redish text-1xl text-center font-bold">{error}</p>}
+      {success && <p className="text-highlight text-1xl text-center font-bold">{succes}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-gray-700">Username</label>
