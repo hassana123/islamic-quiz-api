@@ -43,7 +43,7 @@ const GetApiKey = () => {
         {!apiKey ? (
           <button
             onClick={generateApiKey}
-            className="w-full bg-primary text-white text-lg font-semibold py-2 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="w-full bg-primary text-[#fff] text-lg font-semibold py-2 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             disabled={loading}
           >
             {loading ? 'Generating...' : 'Generate API Key'}
@@ -54,16 +54,16 @@ const GetApiKey = () => {
               <span className="text-gray-700 truncate">{apiKey}</span>
               <button
                 onClick={copyToClipboard}
-                className="ml-2 bg-blue-500 text-white py-1 px-2 rounded-md hover:bg-blue-600"
+                className="ml-2 bg-customGreen text-[#fff] py-1 px-2 rounded-md hover:bg-higlight"
               >
                 Copy
               </button>
             </div>
-            <div className="mt-4 text-gray-700">
+            <div className="mt-4 text-primary">
               <p className="font-semibold">How to Use Your API Key:</p>
               <p>1. Include the API key in the headers of your requests:</p>
-              <pre className="bg-gray-100 p-2 rounded-md mt-2 text-sm">
-                {`Authorization: Bearer ${apiKey}`}
+              <pre className="bg-lightGreen  p-2 rounded-md mt-2 text-sm">
+                {`x-api-key: Bearer [your-API-Key]`}
               </pre>
               <p className="mt-2">
                 2. Use it to authenticate your API requests to the QuizAPI endpoints.

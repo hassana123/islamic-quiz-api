@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../util/store';
-
+// apikey= 5beac9f6633217756bc4c311bcf98aa3d63e493fd41bf95cd3544f4c522d0a88
 const Sidebar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const Sidebar = () => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     dispatch(logout());
-    navigate('/login');
+    navigate('/');
   };
 
   return (
@@ -30,7 +30,7 @@ const Sidebar = () => {
           Get API Key
         </NavLink>
       </nav>
-      <div className="mt-auto pt-4 border-t border-primary">
+      <div className="pt-4 mt-[40px] border-t border-primary">
         <button onClick={handleLogout} className="block text-red-500 hover:bg-red-100 p-2 rounded-lg">
           Log Out
         </button>

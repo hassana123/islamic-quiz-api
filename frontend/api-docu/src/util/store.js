@@ -34,6 +34,7 @@ const authSlice = createSlice({
       state.loading = false;
       state.error = null;
       state.success=null;
+      localStorage.removeItem("token")
     },
     registerRequest: (state) => {
       state.loading = true;

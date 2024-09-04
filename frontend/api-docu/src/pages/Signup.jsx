@@ -28,7 +28,8 @@ const Signup = () => {
     if (success) {
       timeout = setTimeout(() => {
         navigate('/login');
-      }, 3000); // Redirect after 3 seconds
+        dispatch(registerSuccess(null));
+      }, 1000); // Redirect after 1 seconds
     }
 
     return () => clearTimeout(timeout);
@@ -78,7 +79,7 @@ const Signup = () => {
     <div className="w-full max-w-md mx-auto mt-10 p-6 bg-[#fff] shadow-md rounded-md">
       <h2 className="text-2xl font-bold text-center mb-4">Create New Account</h2>
       {error && <p className="text-redish text-1xl text-center font-bold">{error}</p>}
-      {success && <p className="text-highlight text-1xl text-center font-bold">{succes}</p>}
+      {success && <p className="text-highlight text-1xl text-center font-bold">{success}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-gray-700">Username</label>

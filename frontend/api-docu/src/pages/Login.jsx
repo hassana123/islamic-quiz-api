@@ -66,7 +66,7 @@ const Login = () => {
       console.log(error);
     }
   };
-  console.log(formData);
+  console.log(localStorage.getItem("token"));
 
   return (
     <div className="w-full max-w-md mx-auto mt-10 p-6 bg-[#fff] shadow-md rounded-md">

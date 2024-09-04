@@ -16,7 +16,7 @@ export default {
       highlight: "var( --highlight-color)",
       redish: "var( --redish)",
       opaquebg: "var(--opaque-bg)",
-      lightGreeb: "var(--light-green)",
+      lightGreen: "var(--light-green)",
     },
   },
   plugins: [],
