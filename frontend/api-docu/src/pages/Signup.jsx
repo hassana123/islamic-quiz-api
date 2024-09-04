@@ -10,6 +10,8 @@ import {
 import { useNavigate, NavLink } from 'react-router-dom';
 
 const Signup = () => {
+  // const [errMsg, setErrMsg] = useState("");
+  // const [succesMsg, setSuccesMsg] = useState("");
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -19,7 +21,7 @@ const Signup = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error } = useSelector((state) => state.auth);
+  const { loading, error,  succes } = useSelector((state) => state.auth);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,18 +46,20 @@ const Signup = () => {
       });
 
       dispatch(registerSuccess(response.data));
-      navigate('/dashboard');
+      console.log(response.data);
+      dispatch(registerSuccess(response.data || "Account Created Succesfully! \n Proceed to Login."))
+      navigate('/login');
     } catch (error) {
-      dispatch(registerFailure(error.response?.data?.message || 'Registration failed'));
+      dispatch(registerFailure(error.response?.data?.message || 'Registration failed \n Could not Create Account \n Please try again later'));
     }
   };
   console.log(formData);
   
 
   return (
-    <div className="w-full max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-md">
+    <div className="w-full max-w-md mx-auto mt-10 p-6 bg-[#fff] shadow-md rounded-md">
       <h2 className="text-2xl font-bold text-center mb-4">Create New Account</h2>
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-redish text-1xl font-bold">{error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-gray-700">Username</label>

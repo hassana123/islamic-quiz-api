@@ -10,6 +10,9 @@ import Layout from "./layouts/Layout";
 import store from "./util/store";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Dashboard from "./pages/DashboardPage";
+import GetApiKey from "./pages/GetApiKey";
+import ProtectedRoute from './components/ProtectedRoute';
 const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -36,7 +39,14 @@ const router = createBrowserRouter([
       },
     ],
   },
-  
+  {
+    path: "/dashboard",
+    element: <ProtectedRoute element={<Dashboard />} />,
+  },
+  {
+    path: "/api-key",
+    element: <ProtectedRoute element={<GetApiKey />} />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

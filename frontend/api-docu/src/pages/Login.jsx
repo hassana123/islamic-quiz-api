@@ -37,7 +37,7 @@ const Login = () => {
       dispatch(loginSuccess(response.data));
       console.log(response.data.token);
       localStorage.setItem("token", response.data.token);
-      //navigate("/dashboard");
+      navigate("/dashboard");
     } catch (error) {
       dispatch(loginFailure(error.response?.data?.message || "Login failed"));
       console.log(error);
