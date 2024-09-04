@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
+import Categories from '../components/Categories';
+import NewsLetter from '../components/NewsLetter';
 const HomePage = () => {
   const [questions, setQuestions] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -60,6 +62,8 @@ const HomePage = () => {
   <main className='text-[#000] font-custom2'>
   <Hero/>
   <Features/>
+  <Categories/>
+  <NewsLetter/>
   </main> 
   );
 };

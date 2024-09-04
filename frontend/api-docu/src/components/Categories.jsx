@@ -1,16 +1,28 @@
 import React from 'react'
+import categories from '../util/categories'
+import { NavLink } from 'react-router-dom'
 const Categories = () => {
   return (
-   <section>
-    <h1 className='items-center w-[50%] mx-auto md:flex  justify-between font-[500] mb-10 text-[40px] space font-custom'>
-        <span className='block w-[150px] rounded h-[3px] bg-primary'>
+   <section className='mt-[100px]'>
+   <h1 className='md:items-center md:w-[50%] mx-auto md:flex  md:justify-between font-[500] mb-10 md:text-[40px] text-center text-[25px] space font-custom'>
+        <span className='block md:w-[150px]   md:block hidden rounded h-[3px] bg-primary'>
 
         </span>
-        What do we do
-        <span className='block w-[150px] rounded h-[3px] bg-primary'>
+       Categories
+        <span className='block md:w-[150px] md:block hidden float-right rounded h-[3px] bg-primary'>
 
         </span>
+        <div className=''></div>
     </h1>
+    <div  className=' w-[90%]  mx-auto md:grid items-center md:grid-cols-3 md:space-y-0 space-y-8 lg:grid-cols4'>
+      {categories.slice(0,6).map((category, index)=>(
+        <div key={index} >
+          <img className='w-[70%] mx-auto  bg-[]  rounded-lg h-[25vh]' src={category.image} alt="" />
+          <h3 className='mb-10 md:ml-[80px] ml-[100px] mt-[-40px] px-2 text-[#fff] font-bold text-[25px]'>{category.category}</h3>
+        </div>
+      ))}
+    </div>
+    <NavLink to="/" className="text-center block  my-5  text-primary  text-[26px] font-custom">More .....</NavLink>
    </section>
   )
 }

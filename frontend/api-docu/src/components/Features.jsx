@@ -18,20 +18,22 @@ const Features = () => {
         }
     ]
   return (
- <section>
-    <h1 className='items-center w-[50%] mx-auto md:flex  justify-between font-[500] mb-10 text-[40px] space font-custom'>
-        <span className='block w-[150px] rounded h-[3px] bg-primary'>
+ <section className=' mt-[100px]'>
+    <h1 className='items-center md:w-[50%] mx-auto md:flex  md:justify-between font-[500] mb-10 md:text-[40px] text-[25px] text-center font-custom'>
+        <span className='block md:w-[150px]   md:block hidden rounded h-[3px] bg-primary'>
 
         </span>
         What do we do
-        <span className='block w-[150px] rounded h-[3px] bg-primary'>
+        <span className='block md:w-[150px] md:block hidden float-right rounded h-[3px] bg-primary'>
+
 
         </span>
+        <div className=''></div>
     </h1>
-    <div className='md:grid md:grid-cols-3 w-[90%] space-x-5  mx-auto'>
+    <div className='md:grid md:grid-cols-2 lg:grid-cols-2 w-[90%] space-x-5  mx-auto'>
         {features.map((feature, index)=>(
-            <div className='space-y-3 bg-opaquebg px-5 py-10 shadow-lg'>
-                <img className='mx-auto' src={feature.icon} alt="" />
+            <div key={index} className='space-y-8 bg-opaquebg px-5 py-10 shadow-lg'>
+                <img className='mx-auto w-[25%]' src={feature.icon} alt="" />
                 <h3 className='text-[30px]'>{feature.title}</h3>
                 <p className='text-[20px]'>{feature.body}</p>
             </div>

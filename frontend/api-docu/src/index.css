@@ -7,11 +7,12 @@
   font-family: "Inter", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  --primary-color: #618264;
-  --green: #27fb27;
+  --primary-color: #16423C;
+  --green: #6A9C89;
   --secondary-color: #b89130;
   --highlight-color: #00ff00;
-  --opaque-bg: rgba(255, 255, 255, 0.9);
+  --light-green: #C4DAD2;
+  --opaquebg: #E9EFEC;
   --redish: #f93f3f;
   color-scheme: light dark;
   color: #000;
