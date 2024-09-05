@@ -14,10 +14,10 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    'http://localhost:5173', 
-    'http://localhost:8080',
+    'http://localhost:5173/', 
+    'http://localhost:8080/',
     'https://islamic-questions-api.vercel.app/', 
-    'https://hallaly-islamic-questions-api.vercel.app',
+    'https://hallaly-islamic-questions-api.vercel.app/',
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['x-api-key', 'Authorization', 'Content-Type'],
