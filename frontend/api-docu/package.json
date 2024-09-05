@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.7.5",
     "docx": "^8.5.0",
+    "dotenv": "^16.4.5",
     "file-saver": "^2.0.5",
     "install": "^0.13.0",
     "jspdf": "^2.5.1",

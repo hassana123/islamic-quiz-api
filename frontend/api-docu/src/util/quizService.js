@@ -1,14 +1,11 @@
 // src/services/quizService.js
-import axios from 'axios';
-
-const API_KEY = '5beac9f6633217756bc4c311bcf98aa3d63e493fd41bf95cd3544f4c522d0a88';
-const BASE_URL = 'https://islamic-quiz-api.vercel.app/questions';
+import axiosInstance from "./axios";
 
 export const fetchQuestions = async (category, difficulty) => {
   try {
-    const response = await axios.get(BASE_URL, {
+    const response = await axiosInstance.get('/questions', {
       params: { category, difficulty },
-      headers: { 'x-api-key': API_KEY }
+      headers: { 'x-api-key': import.meta.env.VITE_API_KEY }
     });
     return response.data;
   } catch (error) {

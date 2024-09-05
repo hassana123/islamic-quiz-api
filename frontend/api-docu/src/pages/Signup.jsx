@@ -1,7 +1,7 @@
 // src/components/Signup.js
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
+import axiosInstance from '../util/axios';
 import {
   registerRequest,
   registerSuccess,
@@ -61,7 +61,7 @@ const Signup = () => {
 
     dispatch(registerRequest());
     try {
-      const response = await axios.post('https://islamic-quiz-api.vercel.app/register', {
+      const response = await axiosInstance.post('/register', {
         username: formData.username,
         email: formData.email,
         password: formData.password,

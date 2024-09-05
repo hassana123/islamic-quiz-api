@@ -19,11 +19,14 @@ const NonTechiesPage = () => {
 
   useEffect(() => {
     const fetchQuestionsData = async () => {
+      setLoading(true);
       try {
         const data = await fetchQuestions(category, difficulty);
         setQuestions(data.questions);
+      setLoading(false);
         setCurrentPage(1);
       } catch (error) {
+        setLoading(false)
         console.error("Failed to fetch questions:", error);
       }
     };
@@ -137,8 +140,7 @@ const NonTechiesPage = () => {
         onPageChange={setCurrentPage}
       />
   </div>
-
-      <div className="space-y-4">
+{loading? <p className="text-2xl text-center  ">Fetching Questions...</p> :<div className="space-y-4">
         {currentQuestions.map((question) => (
           <QuestionCard
             key={question._id}
@@ -149,7 +151,8 @@ const NonTechiesPage = () => {
             isSelected={selectedQuestions.includes(question)}
           />
         ))}
-      </div>
+      </div> }
+      
 
 
       <DownloadOptions

@@ -1,7 +1,7 @@
 // src/pages/GetApiKey.js
 import React, { useState } from 'react';
 import DashboardLayout from '../layouts/DashboardLayout';
-import axios from 'axios';
+import axiosInstance from '../util/axios';
 
 const GetApiKey = () => {
   const [apiKey, setApiKey] = useState('');
@@ -13,17 +13,11 @@ const GetApiKey = () => {
     setError('');
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post(
-        'https://islamic-quiz-api.vercel.app/generate-api-key',
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+   
+      const response = await axiosInstance.post('/generate-api-key');
       setApiKey(response.data.apiKey);
     } catch (err) {
+      console.log(err);
       setError(err.response?.data?.message || 'Failed to generate API key');
     } finally {
       setLoading(false);

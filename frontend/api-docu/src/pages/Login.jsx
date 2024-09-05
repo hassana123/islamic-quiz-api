@@ -1,7 +1,7 @@
 // src/components/Login.js
 import React, { useState , useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import axiosInstance from "../util/axios";
 import { loginRequest, loginSuccess, loginFailure } from "../util/store";
 import { useNavigate, NavLink } from "react-router-dom";
 
@@ -49,8 +49,8 @@ const Login = () => {
     dispatch(loginRequest());
 
     try {
-      const response = await axios.post(
-        "https://islamic-quiz-api.vercel.app/login",
+      const response = await axiosInstance.post(
+        "/login",
         {
           "email": formData.email,
           "password": formData.password,
@@ -60,7 +60,6 @@ const Login = () => {
       dispatch(loginSuccess("Login Succesful"));
       console.log(response.data);
       localStorage.setItem("token", response.data.token);
-      //navigate("/dashboard");
     } catch (error) {
       dispatch(loginFailure(error.response?.data?.message || "Login failed"));
       console.log(error);
