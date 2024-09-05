@@ -10,7 +10,7 @@ const apiKeyRoutes = require("./routes/apiKeyRoutes");
 
 
 const app = express();
-app.use(express.json());
+
 
 const corsOptions = {
   origin: [
@@ -21,6 +21,7 @@ const corsOptions = {
   allowedHeaders: ['x-api-key', 'Authorization', 'Content-Type'],
 };
 app.use(cors(corsOptions));
+app.use(express.json());
 
 // Store the database connection in the app locals BEFORE routes
 app.use(async (req, res, next) => {
