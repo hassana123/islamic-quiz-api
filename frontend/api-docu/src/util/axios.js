@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://islamic-quiz-api.vercel.app",
+  baseURL: "https://islamic-questions-api.vercel.app/",
   headers: {
     "Content-Type": "application/json",
   },
