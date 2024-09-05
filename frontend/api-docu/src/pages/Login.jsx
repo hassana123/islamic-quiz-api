@@ -58,14 +58,14 @@ const Login = () => {
       );
 
       dispatch(loginSuccess("Login Succesful"));
-      console.log(response.data);
+      //console.log(response.data);
       localStorage.setItem("token", response.data.token);
     } catch (error) {
       dispatch(loginFailure(error.response?.data?.message || "Login failed"));
       console.log(error);
     }
   };
-  console.log(localStorage.getItem("token"));
+ // console.log(localStorage.getItem("token"));
 
   return (
     <div className="w-full max-w-md mx-auto mt-10 p-6 bg-[#fff] shadow-md rounded-md">
