@@ -41,7 +41,7 @@ app.use('/admin', authenticateAdmin, adminRoutes);
 // Load routes after DB middleware
 
 app.get('/', (req, res) => {
-  res.redirect('https://hallaly-islamic-questions-api.vercel.app/');
+  res.send('home');
 });
 
 app.use('/', authRoutes); 
