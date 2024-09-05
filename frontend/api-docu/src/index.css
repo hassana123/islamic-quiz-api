@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* @import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+ */
+
 :root {
-  font-family: "Irish Grover", system-ui;
-  font-family: "Inter", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   --primary-color: #16423C;
@@ -15,7 +18,7 @@
   --opaquebg: #E9EFEC;
   --redish: #f93f3f;
   color-scheme: light dark;
-  color: #000;
+  color: var(--primary-color);
   background-color: #fff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;

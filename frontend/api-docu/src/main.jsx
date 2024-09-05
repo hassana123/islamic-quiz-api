@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import { Provider } from "react-redux";
-import NonTechiesSupportPage from "./pages/NonTechiesSupportPage";
+import NonTechiesPage from "./pages/NonTechiesPage";
 import DocumentationPage from "./pages/DocumentationPage";
 import HomePage from "./pages/HomePage";
 import Layout from "./layouts/Layout";
@@ -26,8 +26,8 @@ const router = createBrowserRouter([
         element: <DocumentationPage />,
       },
       {
-        path: "/non-techies-support",
-        element: <NonTechiesSupportPage />,
+        path: "/non-techies",
+        element: <NonTechiesPage />,
       },
       {
         path: "/login",

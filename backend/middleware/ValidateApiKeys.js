@@ -12,8 +12,7 @@ async function validateApiKey(req, res, next) {
         if (!user) {
             return res.status(401).json({ message: 'Invalid API key' });
         }
-
-        req.user = user;  // Attach user info to the request object
+        req.user = user;  
         next();
     } catch (error) {
         res.status(500).json({ message: error.message });

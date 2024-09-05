@@ -1,4 +1,3 @@
-// controllers/feedbackController.js
 
 async function getFeedback(req, res) {
     const db = req.app.get("db");

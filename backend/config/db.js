@@ -1,3 +1,4 @@
+//config/db.js
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const uri = "mongodb+srv://hassanaabdll1:Hassana2001@quizapi.omnto.mongodb.net/?retryWrites=true&w=majority&appName=QuizApi";
