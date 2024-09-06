@@ -70,7 +70,7 @@ async function updateQuestion(req, res) {
 
     // Only allow updating questions that are not approved yet
     const question = await questionsCollection.findOneAndUpdate(
-      { _id: new ObjectId(id), approved: false },
+      { _id: ObjectId(id), approved: false },
       updateDoc,
       { returnOriginal: false }
     );
