@@ -28,7 +28,7 @@ router.post(
   createQuestion
 );
 
-router.put(
+router.patch(
   '/questions/:id',
   [
     param("id").isMongoId().withMessage("Invalid question ID format."),
