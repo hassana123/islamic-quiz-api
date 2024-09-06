@@ -1,4 +1,5 @@
-const { ObjectId} = require('mongodb')
+// const { ObjectId} = require('bson')
+// const { isValidObjectId } = require('mongoose');
 const { validationResult } = require('express-validator');
 
 async function getQuestions(req, res) {
@@ -61,7 +62,7 @@ async function updateQuestion(req, res) {
 
   try {
     const { id } = req.params;
-    const objectId = new ObjectId(id);
+    //const objectId = new ObjectId(id);
     const updateDoc = {
       $set: {
         ...req.body,
@@ -71,7 +72,7 @@ async function updateQuestion(req, res) {
 
     // Only allow updating questions that are not approved yet
     const question = await questionsCollection.findOneAndUpdate(
-      { _id: objectId, approved: false },
+      { _id: id, approved: false },
       updateDoc,
       { returnOriginal: false }
     );

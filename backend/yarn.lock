@@ -138,7 +138,7 @@ braces@~3.0.2:
   dependencies:
     fill-range "^7.1.1"
 
-bson@^6.7.0:
+bson@^6.7.0, bson@^6.8.0:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/bson/-/bson-6.8.0.tgz#5063c41ba2437c2b8ff851b50d9e36cb7aaa7525"
   integrity sha512-iOJg8pr7wq2tg/zSlCCHMi3hMm5JTOxLTagf3zxhcenHsFp+c6uOs6K7W5UE7A4QIJGtqh/ZovFNMP4mOPJynQ==
