@@ -1,5 +1,4 @@
-const { ObjectId} = require('bson')
-//const { isValidObjectId } = require('mongoose');
+const { ObjectId} = require('mongodb');
 const { validationResult } = require('express-validator');
 
 async function getQuestions(req, res) {
@@ -66,7 +65,7 @@ async function updateQuestion(req, res) {
     const updateDoc = {
       $set: {
         ...req.body,
-        updatedAt: new Date(),P
+        updatedAt: new Date(),
       },
     };
 
