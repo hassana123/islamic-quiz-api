@@ -1,4 +1,4 @@
-const { ObjectId} = require('mongodb')
+const { ObjectId} = require('bson')
 //const { isValidObjectId } = require('mongoose');
 const { validationResult } = require('express-validator');
 
@@ -51,9 +51,6 @@ async function createQuestion(req, res) {
   }
 }
 
-const { ObjectId } = require('mongodb'); // Ensure you're using the correct ObjectId from MongoDB
-const { validationResult } = require('express-validator');
-
 async function updateQuestion(req, res) {
   const db = req.app.get("db");
   const questionsCollection = db.collection("questions");
@@ -65,17 +62,11 @@ async function updateQuestion(req, res) {
 
   try {
     const { id } = req.params;
-
-    // Ensure that the ID is a valid ObjectId
-    if (!ObjectId.isValid(id)) {
-      return res.status(400).json({ message: `Invalid question ID format: ${id}` });
-    }
-
     const objectId = new ObjectId(id);
     const updateDoc = {
       $set: {
         ...req.body,
-        updatedAt: new Date(),
+        updatedAt: new Date(),P
       },
     };
 
@@ -83,7 +74,7 @@ async function updateQuestion(req, res) {
     const question = await questionsCollection.findOneAndUpdate(
       { _id: objectId, approved: false },
       updateDoc,
-      { returnDocument: "after" } // Use "returnDocument" to get the updated version
+      { returnOriginal: false }
     );
 
     if (!question.value) {
