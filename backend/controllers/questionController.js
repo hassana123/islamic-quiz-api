@@ -62,7 +62,8 @@ async function updateQuestion(req, res) {
 
   try {
     const { id } = req.params;
-    //const objectId = new ObjectId(id);
+
+    // Update document structure
     const updateDoc = {
       $set: {
         ...req.body,
@@ -70,11 +71,11 @@ async function updateQuestion(req, res) {
       },
     };
 
-    // Only allow updating questions that are not approved yet
+    // Update the question if it is not approved
     const question = await questionsCollection.findOneAndUpdate(
       { _id: id, approved: false },
       updateDoc,
-      { returnOriginal: false }
+      { returnDocument: "after" } // Correct option to return the updated document
     );
 
     if (!question.value) {
