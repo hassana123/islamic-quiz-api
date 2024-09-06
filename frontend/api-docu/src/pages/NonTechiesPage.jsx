@@ -23,6 +23,7 @@ const NonTechiesPage = () => {
       try {
         const data = await fetchQuestions(category, difficulty);
         setQuestions(data.questions);
+        console.log(data.questions)
       setLoading(false);
         setCurrentPage(1);
       } catch (error) {
