@@ -61,6 +61,7 @@ async function updateQuestion(req, res) {
 
   try {
     const { id } = req.params;
+    const objectId = new ObjectId(id);
     const updateDoc = {
       $set: {
         ...req.body,
@@ -70,7 +71,7 @@ async function updateQuestion(req, res) {
 
     // Only allow updating questions that are not approved yet
     const question = await questionsCollection.findOneAndUpdate(
-      { _id: ObjectId(id), approved: false },
+      { _id: id, approved: false },
       updateDoc,
       { returnOriginal: false }
     );
