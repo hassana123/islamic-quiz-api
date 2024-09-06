@@ -1,5 +1,5 @@
-// const { ObjectId} = require('bson')
-// const { isValidObjectId } = require('mongoose');
+const { ObjectId} = require('bson')
+//const { isValidObjectId } = require('mongoose');
 const { validationResult } = require('express-validator');
 
 async function getQuestions(req, res) {
@@ -62,8 +62,7 @@ async function updateQuestion(req, res) {
 
   try {
     const { id } = req.params;
-
-    // Update document structure
+    const objectId = new ObjectId(id);
     const updateDoc = {
       $set: {
         ...req.body,
@@ -71,11 +70,11 @@ async function updateQuestion(req, res) {
       },
     };
 
-    // Update the question if it is not approved
+    // Only allow updating questions that are not approved yet
     const question = await questionsCollection.findOneAndUpdate(
-      { _id: id, approved: false },
+      { _id: objectId, approved: false },
       updateDoc,
-      { returnDocument: "after" } // Correct option to return the updated document
+      { returnOriginal: false }
     );
 
     if (!question.value) {
