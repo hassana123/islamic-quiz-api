@@ -1,20 +1,33 @@
-import React from 'react';
+// const generateDOCX = async (questions) => {
+//     try {
+//       const doc = new Document();
+//       questions.forEach((question, index) => {
+//         doc.addSection({
+//           children: [
+//             new Paragraph({
+//               children: [
+//                 new TextRun({
+//                   text: `${index + 1}. ${question.question}`,
+//                   bold: true,
+//                 }),
+//               ],
+//             }),
+//             new Paragraph({
+//               text: `Correct Answer: ${question.answer}`,
+//             }),
+//             new Paragraph({
+//               text: `Options: ${question.options.join(", ")}`,
+//             }),
+//           ],
+//         });
+//       });
+  
+//       const blob = await Packer.toBlob(doc);
+//       return blob;
+//     } catch (error) {
+//       console.error("Error generating DOCX file:", error);
+//       throw error;
+//     }
+//   };
 
-const QuestionCard = ({ question }) => {
-  return (
-    <div className="w-[80%] bg-[#fff] p-4 rounded-lg shadow-md snap-center m-2">
-      <h3 className="text-lg font-semibold">{question.question}</h3>
-      <p className="text-customGreen mt-2">Category: {question.category}</p>
-      <p className="text-highlight">Difficulty: {question.difficulty}</p>
-      <ul className="mt-4">
-        {question.options.map((option, index) => (
-          <li key={index} className="">
-            {option}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
 
-export default QuestionCard;

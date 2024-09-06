@@ -39,7 +39,7 @@ const Navbar = () => {
           })}
           className=''
         >
-          Techies
+        Api
         </NavLink>
         <NavLink 
           to="/non-techies" 
@@ -49,7 +49,7 @@ const Navbar = () => {
           })}
           className=''
         >
-          Non-Techies
+          Questions
         </NavLink>
         <NavLink 
           to="/docs" 

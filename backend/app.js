@@ -34,7 +34,7 @@ app.use(async (req, res, next) => {
 });
 
 // Middleware for admin routes
-app.use('/admin', authenticateAdmin, adminRoutes);
+//app.use('/admin', authenticateAdmin, adminRoutes);
 
 // Load routes after DB middleware
 
@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 
 app.use('/', authRoutes); 
 app.use('/', questionRoutes);
-app.use('/', feedbackRoutes);
+//app.use('/', feedbackRoutes);
 app.use('/', apiKeyRoutes );
 
 module.exports = app;
