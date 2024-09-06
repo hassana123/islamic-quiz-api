@@ -6,19 +6,12 @@ async function getQuestions(req, res) {
   const questionsCollection = db.collection("questions");
 
   try {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
-    const skip = (page - 1) * limit;
-
     const filter = {};
     if (req.query.category) filter.category = req.query.category;
     if (req.query.difficulty) filter.difficulty = req.query.difficulty;
 
-    const questions = await questionsCollection.find(filter).skip(skip).limit(limit).toArray();
-    const totalQuestions = await questionsCollection.countDocuments(filter);
-    const totalPages = Math.ceil(totalQuestions / limit);
-
-    res.status(200).json({ questions, page, totalPages, totalQuestions });
+    const questions = await questionsCollection.find(filter).toArray();
+    res.status(200).json({ questions });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
