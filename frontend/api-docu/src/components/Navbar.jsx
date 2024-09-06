@@ -65,14 +65,14 @@ const Navbar = () => {
           <NavLink 
             to="/login" 
             onClick={closeMenu}
-            className="rounded-md border border-primary lg:text-[20px] lg:px-5 px-3 py-2"
+            className="rounded-md border border-primary  lg:text-[18px] text-[16px] lg:px-5 px-3 py-2"
           >
             Login
           </NavLink>
           <NavLink 
             to="/sign-up" 
             onClick={closeMenu}
-            className="rounded-md bg-primary lg:text-[20px] text-[#fff] lg:px-5 px-3 py-2 text-white"
+            className="rounded-md bg-primary  lg:text-[18px] text-[16px] text-[#fff] lg:px-5 px-3 py-2 text-white"
           >
             Sign-Up
           </NavLink>
@@ -81,13 +81,13 @@ const Navbar = () => {
       <div className='lg:space-x-3 space-x-2 md:block hidden'>
         <NavLink 
           to="/login" 
-          className="rounded-md border border-primary lg:text-[20px] lg:px-5 px-3 py-2"
+          className="rounded-md border border-primary lg:text-[18px] text-[16px] lg:px-5 px-3 py-2"
         >
           Login
         </NavLink>
         <NavLink 
           to="/sign-up" 
-          className="rounded-md bg-primary lg:text-[20px] text-[#fff] lg:px-5 px-3 py-2 text-white"
+          className="rounded-md bg-primary lg:text-[18px] text-[16px] text-[#fff] lg:px-5 px-3 py-2 text-white"
         >
           Sign-Up
         </NavLink>
