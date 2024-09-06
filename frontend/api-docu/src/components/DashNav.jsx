@@ -1,5 +1,6 @@
 // src/components/DashNav.js
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
 const DashNav = () => {
@@ -13,7 +14,7 @@ const DashNav = () => {
 
   return (
     <div className="bg-white shadow-md h-16 flex items-center justify-between px-6">
-      <div className="text-xl font-bold">IslamicQuizAPI</div>
+      <NavLink to="/" className="text-xl font-bold">IslamicQuizAPI</NavLink>
       <div className="flex items-center space-x-4">
         <input
           type="text"
