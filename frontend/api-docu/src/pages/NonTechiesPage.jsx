@@ -97,7 +97,7 @@ const NonTechiesPage = () => {
 
   return (
     <section className="p-4 my-10">
-      <h1 className="text-2xl my-2 font-bold">Non-Techies Quiz Questions</h1>
+      <h1 className="text-2xl my-2 font-bold"> Quiz Questions</h1>
       <div>
         <h1 className="text-2xl mb-5 text-customGreen">
           Select and Download Questions

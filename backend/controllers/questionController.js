@@ -68,7 +68,7 @@ async function updateQuestion(req, res) {
         updatedAt: new Date(),
       },
     };
-
+    res.status(201).json(updateDoc);
     // Only allow updating questions that are not approved yet
     const question = await questionsCollection.findOneAndUpdate(
       { _id: objectId, approved: false },
@@ -76,7 +76,7 @@ async function updateQuestion(req, res) {
       { returnOriginal: false }
     );
 
-    if (!question.value) {
+    if (!question) {
       return res.status(404).json({ message: `Cannot find any unapproved question with ID ${id}` });
     }
 

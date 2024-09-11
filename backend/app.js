@@ -26,6 +26,8 @@ app.use(async (req, res, next) => {
     try {
       const db = await connectDB();
       app.set('db', db);  // Store the database connection in app locals
+      console.log("connected to the database sucessfully.");
+      //return res.status(200).json({ message: 'connected to the database sucessfully.' });
     } catch (error) {
       return res.status(500).json({ message: 'Failed to connect to the database.' });
     }

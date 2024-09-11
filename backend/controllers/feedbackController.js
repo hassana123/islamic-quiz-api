@@ -29,16 +29,15 @@ async function getFeedback(req, res) {
     const feedbackCollection = db.collection("feedback");
   
     try {
-      const { userId, message, rating } = req.body;
+      const { userId, message } = req.body;
   
-      if (!userId || !message || rating === undefined) {
+      if (!userId || !message) {
         return res.status(400).json({ message: "Missing required fields" });
       }
   
       const feedback = {
         userId,
         message,
-        rating,
         createdAt: new Date(),
       };
   

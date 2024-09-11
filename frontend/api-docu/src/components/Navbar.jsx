@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <nav className='flex justify-between w-[90%] mx-auto py-5 font-custom2'>
-      <h1 className='md:text-[25px] text-[20px] font-custom font-bold text-primary'>IslamicQuizAPI</h1>
+      <h1 className='md:text-[25px] text-[20px] font-custom font-bold text-primary'>IslamicQuestionAPI</h1>
       <div className='md:hidden'>
         <IoMenuOutline onClick={toggleMenu} className='text-[38px] cursor-pointer' />
       </div>

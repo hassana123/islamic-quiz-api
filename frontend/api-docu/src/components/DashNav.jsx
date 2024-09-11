@@ -14,7 +14,7 @@ const DashNav = () => {
 
   return (
     <div className="bg-white shadow-md h-16 flex items-center justify-between px-6">
-      <NavLink to="/" className="text-xl font-bold">IslamicQuizAPI</NavLink>
+      <NavLink to="/" className="text-xl font-bold">IslamicQuestionsAPI</NavLink>
       <div className="flex items-center space-x-4">
         <input
           type="text"
