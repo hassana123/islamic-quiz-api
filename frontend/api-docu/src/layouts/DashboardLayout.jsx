@@ -1,21 +1,15 @@
-
-import React from 'react';
-import DashNav from '../components/DashNav';
-import Sidebar from '../components/Sidebar';
+import React from "react";
+import DashNav from "../components/DashNav";
+import Sidebar from "../components/Sidebar";
 
 const DashboardLayout = ({ children }) => {
   return (
     <main>
-      <DashNav/>
+      <DashNav />
       <div className="min-h-screen flex">
-      <Sidebar />
-      <div className="flex-1">
-       
-        <div className="p-6 bg-gray-100">
-          {children}
-        </div>
+        <Sidebar />
+        <div className="ml-[21%]">{children}</div>
       </div>
-    </div>
     </main>
   );
 };

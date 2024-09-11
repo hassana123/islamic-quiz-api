@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/DashboardPage";
 import GetApiKey from "./pages/GetApiKey";
+import AddQuestionsPage from "./pages/AddQuestionsPage";
 import ProtectedRoute from './components/ProtectedRoute';
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
     path: "/api-key",
     element: <ProtectedRoute element={<GetApiKey />} />,
   },
+  {
+    path:"/submit-question",
+    element:<ProtectedRoute element={<AddQuestionsPage/>}/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

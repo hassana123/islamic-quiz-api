@@ -31,7 +31,7 @@ const GetApiKey = () => {
 
   return (
     <DashboardLayout>
-      <div className="bg-white p-6 rounded-md shadow-md max-w-md mx-auto">
+      <div className="bg-white p-6 rounded-md shadow-md  my-10 mx-auto">
         <h2 className="text-2xl font-bold mb-4">Generate Your API Key</h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         {!apiKey ? (
@@ -57,8 +57,13 @@ const GetApiKey = () => {
               <p className="font-semibold">How to Use Your API Key:</p>
               <p>1. Include the API key in the headers of your requests:</p>
               <pre className="bg-lightGreen  p-2 rounded-md mt-2 text-sm">
-                {`x-api-key: Bearer [your-API-Key]`}
+                {`x-api-key: [your-API-Key]`}
               </pre>
+             <span className='my-2 block'> like so</span>
+              <pre className="bg-lightGreen  p-2 rounded-md mt-2 text-sm">
+                {`x-api-key: ${apiKey}`}
+              </pre>
+
               <p className="mt-2">
                 2. Use it to authenticate your API requests to the QuizAPI endpoints.
               </p>

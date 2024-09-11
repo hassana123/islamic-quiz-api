@@ -15,7 +15,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="bg-gray-50 h-screen p-4 pt-10 shadow-lg">
+    <div className="fixed w-[20%] h-screen p-4 pt-10 shadow-lg">
       <nav className="space-y-4">
         <NavLink  style={({ isActive }) => ({
             borderBottom: isActive ? "2px solid #618264" : "none",
@@ -24,7 +24,7 @@ const Sidebar = () => {
         </NavLink>
         <NavLink  style={({ isActive }) => ({
             borderBottom: isActive ? "2px solid #618264" : "none",
-          })} to="/submit-questions" className="block text-gray-700 hover:bg-gray-200 p-2 rounded-lg">
+          })} to="/submit-question" className="block text-gray-700 hover:bg-gray-200 p-2 rounded-lg">
           Submit Questions
         </NavLink>
         <NavLink

@@ -13,7 +13,7 @@ const Dashboard = () => {
   }
   return (
     <DashboardLayout>
-      <div className="w-[80%] mx-auto p-6 bg-white rounded-lg shadow-md">
+      <div className="w-[95%] mx-auto p-6 bg-white rounded-lg shadow-md">
         <h1 className="text-3xl font-bold text-primary mb-4">Salam, {username}!</h1>
         <p className="text-[20px] mb-6">Welcome to your dashboard. Here’s a quick overview of what you can do:</p>
 

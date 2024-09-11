@@ -64,9 +64,42 @@ export const {
   registerFailure,
 } = authSlice.actions;
 
+
+
+const questionsSlice = createSlice({
+  name: 'questions',
+  initialState: {
+    loading: false,
+    error: null,
+    success: null,
+  },
+  reducers: {
+    submitQuestionRequest: (state) => {
+      state.loading = true;
+      state.error = null;
+      state.success = null;
+    },
+    submitQuestionSuccess: (state, action) => {
+      state.loading = false;
+      state.success = action.payload;
+    },
+    submitQuestionFailure: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+  },
+});
+
+export const {
+  submitQuestionRequest,
+  submitQuestionSuccess,
+  submitQuestionFailure,
+} = questionsSlice.actions;
+
 const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
+    questions: questionsSlice.reducer, 
   },
 });
 
