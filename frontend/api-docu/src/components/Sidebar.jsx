@@ -25,7 +25,7 @@ const Sidebar = () => {
         <NavLink  style={({ isActive }) => ({
             borderBottom: isActive ? "2px solid #618264" : "none",
           })} to="/submit-question" className="block text-gray-700 hover:bg-gray-200 p-2 rounded-lg">
-          Submit Questions
+          Submit Question
         </NavLink>
         <NavLink
          style={({ isActive }) => ({

@@ -32,6 +32,7 @@ const categories = [
     { category: "Sahabah", image:book15 },
     { category: "Hadith", image: book16},
     { category: "Ramadan", image: book1 }, 
+    { category: "Fasting", image: book1 }, 
     { category: "Islamic Civilization", image: "path/to/islamic-civilization-image.jpg" },
     { category: "Duas", image: "path/to/muslim-women-image.jpg" },
     { category: "Aqidah", image: "path/to/islamic-art-image.jpg" },
