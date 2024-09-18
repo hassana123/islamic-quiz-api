@@ -45,8 +45,9 @@ async function createQuestion(req, res) {
     const insertedQuestion = await questionsCollection.findOne({ _id: result.insertedId });
 
     res.status(201).json({
-      "message": "Question submitted successfully."
-    },insertedQuestion);
+      "message": "Question submitted successfully.",
+      insertedQuestion
+    });
   } catch (error) {
     res.status(500).json({ message: "An internal server error occurred." });
   }

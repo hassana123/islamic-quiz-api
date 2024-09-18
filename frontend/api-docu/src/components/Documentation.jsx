@@ -109,7 +109,11 @@ const Documentation = () => {
         <pre className="bg-gray-100 p-4 rounded-md">
 {`{
   "message": "Question submitted successfully."
-}`}
+}
+...  
+`
+
+}
         </pre>
 
         <h3 className="text-xl font-semibold mb-2">3. Generate API Key</h3>
