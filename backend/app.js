@@ -7,7 +7,7 @@ const adminRoutes = require("./routes/adminRoute");
 const feedbackRoutes = require("./routes/feedbackRoutes");
 const authRoutes = require("./routes/authRoutes");
 const apiKeyRoutes = require("./routes/apiKeyRoutes");
-const emailRoutes = require("./routes/emailRoutes");
+const emailRoutes = require("./routes/emailRoute")
 
 const app = express();
 
