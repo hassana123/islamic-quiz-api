@@ -7,7 +7,7 @@ const adminRoutes = require("./routes/adminRoute");
 const feedbackRoutes = require("./routes/feedbackRoutes");
 const authRoutes = require("./routes/authRoutes");
 const apiKeyRoutes = require("./routes/apiKeyRoutes");
-
+const emailRoutes = require("./routes/emailRoutes");
 
 const app = express();
 
@@ -48,5 +48,6 @@ app.use('/', authRoutes);
 app.use('/', questionRoutes);
 //app.use('/', feedbackRoutes);
 app.use('/', apiKeyRoutes );
+app.use("/", emailRoutes);
 
 module.exports = app;
