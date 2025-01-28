@@ -9,14 +9,16 @@ const authRoutes = require("./routes/authRoutes");
 const apiKeyRoutes = require("./routes/apiKeyRoutes");
 const emailRoutes = require("./routes/emailRoute")
 
-const app = express();
-
-
 const corsOptions = {
-  origin: ["https://g3women.org/", "http://localhost:8080", "https://islamic-questions-api.vercel.app/"],
+  origin: "*", // Allow all origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['x-api-key', 'Authorization', 'Content-Type'],
 };
+const app = express();
+
+app.options("*", cors(corsOptions)); // Handle preflight requests
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Handle preflight requests
 app.use(cors(corsOptions));
 app.use(express.json());
 
