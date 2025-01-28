@@ -13,7 +13,7 @@ const app = express();
 
 
 const corsOptions = {
-  origin: '*',
+  origin: ["https://g3women.org/", "http://localhost:8080", "https://islamic-questions-api.vercel.app/"],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['x-api-key', 'Authorization', 'Content-Type'],
 };
